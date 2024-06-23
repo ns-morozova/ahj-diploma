@@ -12,6 +12,8 @@ export default class Organizer {
 
     init() {
 
+        document.body.classList.add('loading');
+
         // Создаем уникальный ID для этого клиента
         this.clientId = Math.random().toString(36).substring(2);
         document.cookie = `clientId=${this.clientId}; max-age=86400; path=/`;
@@ -29,6 +31,8 @@ export default class Organizer {
             this.eventSource.addEventListener('open', this.onOpenEss.bind(this));
             this.eventSource.addEventListener('error', this.onErrorEss.bind(this));
             this.eventSource.addEventListener('message', this.onMessageEss.bind(this));
+
+            document.body.classList.remove('loading');
 
         }).catch(err => {
             console.log(err);
