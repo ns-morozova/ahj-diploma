@@ -20,13 +20,13 @@ export default class Organizer {
         const fileInput = document.getElementById('file-input');
         messageForm.addEventListener('submit', this.onSubmit.bind(this));
         fileInput.addEventListener("change", this.onChange.bind(this));
-        
+        debugger;
         Connection.query('GET', { method: 'allTickets', clientId: this.clientId }).then(answer => {
             answer.data.sort((a, b) => a.date - b.date);
             answer.data.forEach(mess => {
                 this.drawMessage(mess);
             });
-            this.eventSource = new EventSource(`http://127.0.0.1:7070/sse?clientId=${this.clientId}`);
+            this.eventSource = new EventSource(`${Connection.URL}/sse?clientId=${this.clientId}`);
             this.eventSource.addEventListener('open', this.onOpenEss.bind(this));
             this.eventSource.addEventListener('error', this.onErrorEss.bind(this));
             this.eventSource.addEventListener('message', this.onMessageEss.bind(this));
