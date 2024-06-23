@@ -74,7 +74,6 @@ export default class Organizer {
         });
     }
 
-
     onOpenEss(event) {
         console.log(event);
     }
@@ -106,7 +105,6 @@ export default class Organizer {
             messageInput.value = '';
             fileInput.value = '';
         });
-
     }
 
     onChange(event) {

@@ -2,8 +2,6 @@ export default class Connection {
     // static URL = 'http://127.0.0.1:7070';
     static URL = 'https://ahj-diploma-backend-71ss.onrender.com';
 
-    
-
     static async query(type, param, objData = null) {
         let strParam = '';
 
