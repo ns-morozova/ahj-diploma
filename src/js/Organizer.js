@@ -20,7 +20,6 @@ export default class Organizer {
         const fileInput = document.getElementById('file-input');
         messageForm.addEventListener('submit', this.onSubmit.bind(this));
         fileInput.addEventListener("change", this.onChange.bind(this));
-        debugger;
         Connection.query('GET', { method: 'allTickets', clientId: this.clientId }).then(answer => {
             answer.data.sort((a, b) => a.date - b.date);
             answer.data.forEach(mess => {
