@@ -14,7 +14,8 @@ module.exports = merge(common, {
     open: {
       app: {
         name: 'chrome',
-        arguments: ['--incognito', '--new-window'],
+        //arguments: ['--incognito', '--new-window'],
+        arguments: ['--new-window'],
       },    
 
     },
